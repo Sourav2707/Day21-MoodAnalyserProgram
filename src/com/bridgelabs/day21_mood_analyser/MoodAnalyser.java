@@ -9,13 +9,20 @@ public class MoodAnalyser {
     public MoodAnalyser(String message) {
         this.message = message;
     }
-    public String analyseMood() {
-        boolean analyse = message.toUpperCase().contains("SAD"); //converting to upper case for consistent result and using contains method to check
-        if(analyse == true) {
-            analysedResult = "SAD"; //if analyse is true sad will be stored
+    public String analyseMood() throws Exception{
+        try {
+            if(message.contains("")) {
+                throw new Exception("The string is empty, please enter something");
+            }
+            else if(message.toUpperCase().contains("SAD")) {
+                analysedResult = "SAD"; //if analyse is true sad will be stored
+            }
+            else {
+                analysedResult = "HAPPY"; //else happy will be stored and returned
+            }
         }
-        else {
-            analysedResult = "HAPPY"; //else happy will be stored and returned
+        catch (Exception e) {
+            System.out.println(e.getMessage());
         }
         return analysedResult;
     }
