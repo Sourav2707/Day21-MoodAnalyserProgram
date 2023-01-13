@@ -11,7 +11,7 @@ public class MoodAnalyser {
     }
     public String analyseMood() throws Exception{
         try {
-            if(message.contains("")) {
+            if(message.equals("")) {
                 throw new Exception("The string is empty, please enter something");
             }
             else if(message.toUpperCase().contains("SAD")) {
