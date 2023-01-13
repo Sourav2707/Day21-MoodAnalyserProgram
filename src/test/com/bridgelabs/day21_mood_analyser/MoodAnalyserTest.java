@@ -4,11 +4,11 @@ import com.bridgelabs.day21_mood_analyser.MoodAnalyser;
 import org.junit.Assert;
 import org.junit.Test;
 public class MoodAnalyserTest {
-    MoodAnalyser moodAnalyser = new MoodAnalyser();
+    String message = "I'm in any mood";
+    MoodAnalyser moodAnalyser = new MoodAnalyser(message);
 @Test
 public void testAnalyseMood() throws Exception {
-    String message = "I'm in any mood";
-    String actual = moodAnalyser.analyseMood(message);
+    String actual = moodAnalyser.analyseMood();
     Assert.assertEquals("HAPPY", actual);
 }
 } 

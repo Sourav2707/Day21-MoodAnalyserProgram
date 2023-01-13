@@ -7,8 +7,8 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter a sentence to analyse your mood");
         String message = scanner.nextLine();
-        MoodAnalyser moodAnalyser = new MoodAnalyser();
-        System.out.println(moodAnalyser.analyseMood(message));
+        MoodAnalyser moodAnalyser = new MoodAnalyser(message);
+        System.out.println(moodAnalyser.analyseMood());
 
     }
 }
