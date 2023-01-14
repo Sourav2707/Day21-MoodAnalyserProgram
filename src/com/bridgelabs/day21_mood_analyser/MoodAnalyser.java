@@ -9,10 +9,13 @@ public class MoodAnalyser {
     public MoodAnalyser(String message) {
         this.message = message;
     }
-    public String analyseMood() throws Exception{
+    public String analyseMood() throws MoodAnalysisException{
         try {
-            if(message.contains("")) {
-                throw new Exception("The string is empty, please enter something");
+            if(message.equals("")) {
+                throw new MoodAnalysisException(MoodAnalysisException.ExceptionType.MoodEmpty, "Mood must not be empty");
+            }
+            else if(message == null) {
+                throw new MoodAnalysisException(MoodAnalysisException.ExceptionType.MoodNull, "Mood must not be null");
             }
             else if(message.toUpperCase().contains("SAD")) {
                 analysedResult = "SAD"; //if analyse is true sad will be stored
@@ -23,7 +26,6 @@ public class MoodAnalyser {
         }
         catch (Exception e) {
             System.out.println(e.getMessage());
-            return "HAPPY";
         }
         return analysedResult;
     }
